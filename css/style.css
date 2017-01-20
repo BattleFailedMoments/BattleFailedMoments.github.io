@@ -1,9 +1,106 @@
+/* Display */
+@font-face {
+    font-family: 'Oswald Bold';
+    src: url('../fonts/Oswald-Bold.ttf');
+}
+/* Titles */
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('../fonts/Montserrat-Light.otf');
+}
+/* Body */
+@font-face {
+    font-family: 'Cooper Hewitt Medium';
+    src: url('../fonts/CooperHewitt-Medium.otf');
+}
+@font-face {
+    font-family: 'Cooper Hewitt Light';
+    src: url('../fonts/CooperHewitt-Light.otf');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background: url("../img/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  font-family: "Cooper Hewitt Light", sans-serif;
 }
 
-img.background {
-  height: 100vh;
-  width: 100vw;
+h1, h2 {
+    font-family: "Oswald Bold", sans-serif;
+    color: white;
 }
+
+h3, h4, h5, h6 {
+    font-family: "Montserrat Light", sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+p {
+    font-family: "Cooper Hewitt Light", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+}
+
+.container__item + .container__item {
+    margin-top: 5px;
+}
+    .logo {
+        max-width: 80px;
+    }
+    .hero-title {
+        font-size: 5em;
+    }
+
+    .centeredPromptLabel {
+      color: white;
+      font-size: 30px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .centeredPromptDetails {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .btn {
+        border: none;
+        -webkit-border-radius: 5;
+        -moz-border-radius: 5;
+        border-radius: 5px;
+        color: #ffffff;
+        background: #3498db;
+        padding: 20px 40px 20px 40px;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        background: #3cb0fd;
+        text-decoration: none;
+        cursor: pointer;
+    }
