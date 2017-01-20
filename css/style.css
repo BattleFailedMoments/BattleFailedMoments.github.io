@@ -10,10 +10,6 @@
 }
 /* Body */
 @font-face {
-    font-family: 'Cooper Hewitt Medium';
-    src: url('../fonts/CooperHewitt-Medium.otf');
-}
-@font-face {
     font-family: 'Cooper Hewitt Light';
     src: url('../fonts/CooperHewitt-Light.otf');
 }
@@ -71,20 +67,20 @@ p {
     }
     .hero-title {
         font-size: 5em;
+        letter-spacing: 2px;
+        text-align: center;
     }
 
-    .centeredPromptLabel {
+    .hero-label {
       color: white;
       font-size: 30px;
       font-weight: 700;
       text-align: center;
     }
 
-    .centeredPromptDetails {
+    .hero-subtext {
       color: white;
-      font-size: 16px;
       margin-bottom: 10px;
-      text-align: center;
     }
 
     .btn {
@@ -104,3 +100,9 @@ p {
         text-decoration: none;
         cursor: pointer;
     }
+
+@media only screen and (max-width: 500px) {
+    .hero-title {
+        font-size: 3em;
+    }
+}
