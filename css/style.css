@@ -65,6 +65,10 @@ p {
     .logo {
         max-width: 80px;
     }
+    .logoText {
+      width: 40vw;
+    }
+
     .hero-title {
         font-size: 5em;
         letter-spacing: 2px;
