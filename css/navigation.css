@@ -24,12 +24,13 @@ html, body, .page {
   background-size: cover;
 }
 
+
 #p2, #p3, #p4, #p5 {
   left: 200%;
 }
 
 /*#p1 { background: darkslateblue; }*/
-#p2 { background: tomato; }
+#p2 { background: url("../img/handshake.jpg") no-repeat center center; }
 #p3 { background: gold; }
 #p4 { background: deeppink; }
 #p5 { background: rebeccapurple; }
@@ -94,7 +95,7 @@ ul .icon:hover {
   -o-transform: scale(1.2) !important;
 }
 
-ul {
+#menu {
   position: fixed;
   z-index: 1;
   top: 0;

@@ -47,7 +47,23 @@ p {
     font-family: "Cooper Hewitt Light", sans-serif
 }
 
+a {
+    font-family: "Cooper Hewitt Light", sans-serif
+}
+
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+}
+
+.container2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -295,6 +311,18 @@ p {
 
     .form-label {
         text-align: left !important;
+    }
+
+    .ytplayer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        height: 200px;
+    }
+
+    iframe {
+        margin: 20px;
     }
 
 /*  Media queries  */
