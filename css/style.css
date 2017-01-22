@@ -44,11 +44,17 @@ h3, h4, h5, h6 {
 }
 
 p {
-    font-family: "Cooper Hewitt Light", sans-serif
+    font-family: "Cooper Hewitt Light", sans-serif;
+    color: #2C3E50;
+}
+
+.terms-box {
+    color: #2C3E50;
 }
 
 a {
-    font-family: "Cooper Hewitt Light", sans-serif
+    font-family: "Cooper Hewitt Light", sans-serif;
+
 }
 
 .container {
@@ -317,12 +323,14 @@ a {
         position: absolute;
         left: 0;
         bottom: 0;
+        right: 0;
         display: block;
         height: 200px;
+        margin: auto;
     }
 
     iframe {
-        margin: 20px;
+        margin: 1.7vw;
     }
 
 /*  Media queries  */
