@@ -7,6 +7,9 @@
   <title>BattleFailed Moments Submissions</title>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/TweenMax_minified/TweenMax.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -27,7 +30,69 @@
             <p class="hero-subtext">Send us your best fails!</p>
         </div>
 
-        <a href="https://script.google.com/macros/s/AKfycby1q3aL7UHqX4yHN32bS82iPj_aI1HhHqGt8imOwf40RcI0TFMY/exec" target="_blank" class="container__item btn" type="button">Upload a video</a>
+        <button class="container__item btn uploadBtn" aria-haspopup="true">Upload your video!</button>
+
+        <div class="mask" role="dialog"></div>
+        <!-- <div class="modal" role="alert"> -->
+            <!-- <button class="close" role="button">X</button> -->
+            <form id="msform" class="modal" role="alert">
+                <!-- progressbar -->
+                <ul id="progressbar" class=" ">
+                    <li class="active">Submission Form</li>
+                    <li>Details</li>
+                    <li>Add Video</li>
+                    <li>Terms and Submit</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset>
+                    <h2 class="fs-title  ">BFM Submission Form</h2>
+                    <h3 class="fs-subtitle  ">Make sure you fill in everything!</h3>
+                    <div class="copyright">
+                        <p>Any content that contains any form of copyrighted material will not be used. You may submit as many videos as you wish!</p>
+                        <p>
+                            We accept links from (But we prefer YouTube):<br>
+                            www.xboxclips.com<br>
+                            www.xboxdvr.com
+                        </p>
+                        <p>PS4 Users:<br>
+                        Press the Share button on your PS4 controller and select Upload a Video Clip.</p>
+                        <p>We don't accept links from:<br>
+                        Play.tv</p>
+                    </div>
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title  ">Personal Details</h2>
+                    <h3 class="fs-subtitle  ">So we can make contact if needed and credit you!</h3>
+                    <input id="input-q1" class="form-input" required type="text" name="fullname" placeholder="Your full name" />
+                    <input id="input-q2" class="form-input" required type="text" name="email" placeholder="Your email address" />
+                    <input id="input-q3" class="form-input" required type="text" name="youtubename" placeholder="Your Youtube username with URL" />
+                    <input id="input-q4" class="form-input" required type="text" name="creditname" placeholder="Name to credit in video" />
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title  center">Add video</h2>
+                    <h3 class="fs-subtitle  ">Paste your videolinks here!</h3>
+                    <textarea id="input-q5" class="form-textarea" required name="videourl" placeholder="Post your video URLs here (can be multiple)"></textarea>
+                    <input id="input-q6" class="form-input" type="text" name="gametitle" placeholder="Game title" class="terms "/>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title  ">Terms and Conditions</h2>
+                    <h3 class="fs-subtitle  ">Please accept to submit</h3>
+                    <p class="terms">
+                        By submitting this video to Battlefailed Moments, I hereby acknowledge emitting all rights of use to Battlefailed Moments, and thus grant Battlefailed Moments a perpetual non-exclusive world-wide license (not ownership) to display, promote, or modify my content for use.
+                    </p>
+                    <div class="terms-box">
+                        <input type="checkbox" required name="terms-box"> I accept the <u>Terms and Conditions</u>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <button id="form-submit" type="submit" name="submit" class="submit action-button">Submit</button>
+                </fieldset>
+            </form>
+        <!-- </div> -->
     </div>
 
 </body>
