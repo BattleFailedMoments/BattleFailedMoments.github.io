@@ -104,7 +104,7 @@ p {
         padding: 20px 40px 20px 40px;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
-        z-index: 2;
+        z-index: 0;
     }
 
     .btn:hover {
