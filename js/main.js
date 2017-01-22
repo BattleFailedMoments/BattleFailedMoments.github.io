@@ -101,50 +101,63 @@ $(document).ready(function() {
         });
     });
 
-    $('#input-form').on('submit',function(){
+    $('#msform').on('submit',function(){
 
-        function checkForm(form) {
-            if(form.terms.checked) {
-                var inputq1 = encodeURIComponent($('#input-q1').val());
+            console.log($('.terms-check').is(':checked'));
+
+            if($('.terms-check').is(':checked')) {
                 var inputq2 = encodeURIComponent($('#input-q2').val());
                 var inputq3 = encodeURIComponent($('#input-q3').val());
                 var inputq4 = encodeURIComponent($('#input-q4').val());
                 var textareaq5 = encodeURIComponent($('#textarea-q5').val());
-                var textareaq6 = encodeURIComponent($('#input-q6').val());
+                var inputq6 = encodeURIComponent($('#input-q6').val());
 
-                var q1ID = "entry.1673796720";
                 var q2ID = "entry.1984976514";
                 var q3ID = "entry.2032704821";
                 var q4ID = "entry.1880982110";
                 var q5ID = "entry.1394787027";
                 var q6ID = "entry.1209949091";
                 var baseURL = 'https://docs.google.com/forms/d/e/1FAIpQLSce4xXbuzHIFed314z_j2FeImTMVh_cL8naMXdsZf7mGKXtZg/formResponse?';
-                // var baseURL = 'https://docs.google.com/a/industrydive.com/forms/d/e/1FAIpQLScPUWFIoMwOPyH2lFsSZVfjznr6BRrKa4gpKnmdEOb1WNi60A/formResponse?';
                 var submitRef = '&submit=Submit';
-                var submitURL = (baseURL + q1ID + "=" + inputq1 + "&" + q2ID + "=" + inputq2 + "&" + q3ID + "=" + inputq3 + "&" + q4ID + "=" + inputq4 + "&" + q5ID + "=" + textareaq5 + "&" + q6ID + "=" + textareaq6 + submitRef);
-                console.log(submitURL);
-                $(this)[0].action=submitURL;
-                $('#input-feedback').text('Thank You!');
+                var submitURL = (baseURL + q2ID + "=" + inputq2 + "&" + q3ID + "=" + inputq3 + "&" + q4ID + "=" + inputq4 + "&" + q5ID + "=" + textareaq5 + "&" + q6ID + "=" + inputq6 + submitRef);
+                $(this)[0].action=submitURL
 
-                return true;
-            } else {
-                alert("Please indicate that you accept the Terms and Conditions");
-                form.terms.focus();
-                return false;
+                // Animate to next fieldset
+                if(animating) return false;
+                animating = true;
+
+                current_fs = $('.terms-box').parent();
+                next_fs = $('.terms-box').parent().next();
+
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({opacity: 0}, {
+                    step: function(now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale current_fs down to 80%
+                        scale = 1 - (1 - now) * 0.2;
+                        //2. bring next_fs from the right(50%)
+                        left = (now * 50)+"%";
+                        //3. increase opacity of next_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({
+                    'transform': 'scale('+scale+')',
+                    'position': 'absolute'
+                });
+                        next_fs.css({'left': left, 'opacity': opacity});
+                    },
+                    duration: 800,
+                    complete: function(){
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+
             }
-        }
 
     });
-
-    $(".submit").click(function(){
-        function checkForm(form) {
-            if(!form.terms.checked) {
-                alert("Please indicate that you accept the Terms and Conditions");
-                form.terms.focus();
-                return false;
-            }
-            return true;
-        }
-    })
 
 });
